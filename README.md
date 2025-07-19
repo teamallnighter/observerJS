@@ -1,2 +1,46 @@
 # observerJS
-a toold for observing Ableton Live through Max
+a tool for observing Ableton Live through Max using the v8 object in max.
+
+## Overview
+observer.js is a JavaScript module designed for enhanced and robust monitoring of Ableton Live's API via Max. It features fault-tolerant mechanisms, graceful degradation, adaptive error handling, and connection health tracking. The main component is the LiveAPIMonitor class, which manages various LiveAPI observers, periodic status updates, and user controls for starting, stopping, and configuring monitoring. This is done using the v8 onject in max. 
+
+## Features
+Graceful Degradation & Error Handling: Individual queries and observers handle errors without causing crashes.
+Connection Health Tracking: Maintains statistics on successful and failed API queries.
+Periodic Status Updates: Optional regular status reports with graceful fallback.
+Dynamic Configuration: Adjust update intervals, toggle periodic display, and adapt to errors.
+Comprehensive Monitoring: Tracks transport, tempo, track states, parameter changes, and clip activities.
+
+## Usage
+
+### V8 Object
+
+Start by creating a new v8 object in Max and load the observer.js file.
+
+### Global Functions
+
+Use the global functions for control by sending a message into the v8 object:
+
+```
+start();     // Begin monitoring
+stop();      // Stop monitoring
+restart();   // Restart monitoring
+status();    // Show current monitoring status
+help();      // Display usage instructions
+quick();     // Show quick detailed status
+config();    // Show current configuration
+health();    // Display connection health stats
+
+```
+
+### Output
+
+As of the current version output will display in the max console. 
+
+```text
+v8: All monitoring systems initialized with enhanced reliability  === TRANSPORT: PLAYING ===  === TEMPO: 9.0 BPM ===  === SELECTED TRACK: 29 ===      Color: 11958214 | Status: MUTED | SOLO | ARMED      Devices: 4  >>> VOLUME: 1000.0%  >>> PAN: 100.0% (RIGHT)  Live API Monitor V8 Enhanced - Cleanup completed  Live API Monitor V8 Enhanced - Reliability improvements loaded  === LIVE API DATA EXPLORER V8 ENHANCED STARTED ===  Event-driven monitoring with robust error handling    === TRANSPORT: PLAYING ===  === TRANSPORT: PLAYING ===  === TEMPO: 152.0 BPM ===  === TEMPO: 152.0 BPM ===  === SELECTED TRACK: 1-UR_NEURO_D3 ===      Color: 11958214 | Status: MUTED | SOLO | ARMED      Devices: 4  === SELECTED TRACK: 1-UR_NEURO_D3 ===      Color: 11958214 | Status: MUTED | SOLO | ARMED      Devices: 4  === Setting up parameter monitoring ===  >>> VOLUME: 58.5%  >>> VOLUME: 58.5%  >>> PAN: 50.0% (CENTER)  >>> PAN: 50.0% (CENTER)  === Setting up enhanced clip monitoring ===  No tracks detected for clip monitoring  === Starting robust periodic display ===  Status updates every 3 seconds with graceful degradation    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 115.32 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================  All monitoring systems initialized with enhanced reliability  === TRANSPORT: PLAYING ===  === TEMPO: 9.0 BPM ===  === SELECTED TRACK: 29 ===      Color: 11958214 | Status: MUTED | SOLO | ARMED      Devices: 4  >>> VOLUME: 1000.0%  >>> PAN: 100.0% (RIGHT)    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 123.04 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================  >>> VOLUME: 57.5%  >>> VOLUME: 52.5%  >>> VOLUME: 45.0%  >>> VOLUME: 36.0%  >>> VOLUME: 29.0%  >>> VOLUME: 24.8%  >>> VOLUME: 20.3%  >>> VOLUME: 15.0%  >>> VOLUME: 10.4%  >>> VOLUME: 9.1%  >>> VOLUME: 4.5%  >>> VOLUME: 3.0%  >>> VOLUME: 2.1%  >>> VOLUME: 1.4%  >>> VOLUME: 2.5%  >>> VOLUME: 3.5%  >>> VOLUME: 4.0%  >>> VOLUME: 5.1%  >>> VOLUME: 7.9%  >>> VOLUME: 11.6%  >>> VOLUME: 15.7%  >>> VOLUME: 18.7%  >>> VOLUME: 20.3%  >>> VOLUME: 23.8%  >>> VOLUME: 27.3%  >>> VOLUME: 30.2%  >>> VOLUME: 34.4%  >>> VOLUME: 40.0%  >>> VOLUME: 42.5%  >>> VOLUME: 45.0%  >>> VOLUME: 45.7%  >>> VOLUME: 45.0%  >>> VOLUME: 42.5%  >>> VOLUME: 41.5%  >>> VOLUME: 38.7%  >>> VOLUME: 36.5%  >>> VOLUME: 36.0%  >>> VOLUME: 34.4%  >>> VOLUME: 33.8%  >>> VOLUME: 32.9%  >>> VOLUME: 32.1%    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 130.79 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 138.50 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 146.17 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 152.0 BPM  Position: 153.85 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================  === TEMPO: 151.0 BPM ===  === TEMPO: 150.0 BPM ===  === TEMPO: 149.0 BPM ===  === TEMPO: 148.0 BPM ===  === TEMPO: 147.0 BPM ===  === TEMPO: 146.0 BPM ===  === TEMPO: 145.0 BPM ===  === TEMPO: 144.0 BPM ===  === TEMPO: 145.0 BPM ===  === TEMPO: 146.0 BPM ===  === TEMPO: 147.0 BPM ===  === TEMPO: 148.0 BPM ===  === TEMPO: 149.0 BPM ===  === TEMPO: 150.0 BPM ===  === TEMPO: 151.0 BPM ===    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 151.0 BPM  Position: 161.47 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================  === TRANSPORT: STOPPED ===    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 151.0 BPM  Position: 165.22 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 151.0 BPM  Position: 165.22 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================    =============== ENHANCED SESSION STATUS ===============  Transport: PLAYING  Tempo: 151.0 BPM  Position: 165.22 beats  Selected: 1-UR_NEURO_D3  Track State: MUTED, SOLO, ARMED  =====================================================  === STOPPING ALL MONITORING ===  === CONNECTION HEALTH SUMMARY ===  Transport queries: 10/10 (100.0%)  Session queries: 10/10 (100.0%) 
+
+```
+
+## Roadmap 
+
