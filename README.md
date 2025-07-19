@@ -42,5 +42,3 @@ v8: All monitoring systems initialized with enhanced reliability  === TRANSPORT:
 
 ```
 
-## Roadmap 
-

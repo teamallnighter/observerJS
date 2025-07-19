@@ -51,3 +51,7 @@ Temporary Items
 .history
 .ionide
 
+
+### Ignore Live API Documents ###
+liveAPI/
+*.pdf
